@@ -10,12 +10,47 @@
 
 	<link rel="icon" href="static/images/ring.jpg">
 	<link rel='stylesheet' type='text/css' href='static/inc/common.css'>
-	<script src="static/inc/confetti.js"></script>
+<!--	<script src="static/inc/confetti.js"></script>-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-	<script type='text/javascript' src='static/inc/common.js'></script>
-	
+<!--	<script type='text/javascript' src='static/inc/common.js'></script>-->
+
 </head>
+<script>
+
+	var second = 1000,
+			minute = second * 60,
+			hour = minute * 60,
+			day = hour * 24;
+
+	var countDown = new Date('Jun 25, 2020 00:00:00').getTime(),
+			x = setInterval(function() {
+
+				var now = new Date().getTime(),
+						distance = countDown - now;
+
+				document.getElementById('days').innerText = Math.floor(distance / (day)),
+						document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
+						document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
+						document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
+
+				//do something later when date is reached
+				//animate celebration
+				//if (distance < 0) {
+				//  clearInterval(x);
+				//  'IT'S MY BIRTHDAY!;
+				//}
+
+			}, second)
+
+	var mp = 150
+	var particleColors = {
+		colorOptions: ["DodgerBlue", "OliveDrab", "Gold", "pink", "SlateBlue", "lightblue", "Violet", "PaleGreen", "SteelBlue", "SandyBrown", "Chocolate", "Crimson"],
+		colorIndex: 0,
+		colorIncrementer: 0,
+		colorThreshold: 10
+	}
+</script>
 <body >
 <div id='body_content'>
 	
